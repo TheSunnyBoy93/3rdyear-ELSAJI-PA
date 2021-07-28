@@ -1,0 +1,92 @@
+﻿$ErrorActionPreference = "Continue"
+Clear-Host
+ 
+Write-Host "`n===== Script de création Utilisateurs =====`n" -BackgroundColor DarkGray
+ 
+# Module AD
+Import-Module ActiveDirectory
+ 
+# Variables initiales
+$File = "C:\recup\compteseleves.csv"
+$Domain = (Get-ADDomain).DNSRoot
+
+
+
+ 
+# Actions
+$users = Import-Csv $File -Delimiter ";" 
+Foreach($user in $users) {
+ 
+Write-Host "`n===============" -BackgroundColor DarkGray
+ 
+    # Variables fixes
+    $NOM = $user.NOM
+    $PRENOM = $user.PRENOM
+    $IDENTIFIANT = $user.IDENTIFIANT
+    $Password = $user.PASSWORD
+    $CLASSE = $user.CLASSE
+    $FILIERE = $user.FILIERE
+    $EMAIL= $user.MESSAGERIE
+    $expirdate= $user.ExpirationDate 
+    $chpassword= $user.ChangePassword
+    $chpassword1= $false
+    $script= $user.Script
+    $Domaine = "@lprs.org"
+    $displayname= $PRENOM + " " + $NOM
+    $util= $user.IDENTIFIANT + $domaine
+    $ElevesOU = "DC=lprs,DC=org"
+    $ClasseOU = "OU=Elèves,DC=lprs,DC=org"
+
+
+    # Variables complémentaires
+    #$DN = "$Prenom $Nom"
+    #$UPN = "$IDENTIFIANT@$Domain"
+    #$OU = (Get-ADOrganizationalUnit -Filter "Name -like '*$CLASSE*'").DistinguishedName
+    
+    # Mot de passe
+    $Password = ConvertTo-SecureString -AsPlainText $user.password -Force
+ 
+    # On vérifie si l'ou existe sinon la créer *************************************************************
+    
+    if ((GET-ADOrganizationalUnit -Filter {Name -eq $ClasseOU}) -eq $null)
+    {#New-ADOrganizationalUnit -Name $ClasseOU -Path 
+   
+    # Création de l'utilisateur
+    #********************Création des OU********************************
+    
+    New-ADOrganizationalUnit -Name "Elèves" -Path "DC=lprs,DC=org"
+    New-ADOrganizationalUnit -Name $CLASSE -Path "OU=Elèves,DC=lprs,DC=org"
+    }
+
+#********************Création des Groupes********************************
+
+$tmp = $CLASSE + "_g"
+ # On vérifie si le Groupe filiere existe sinon le créer ************************************************   
+    
+    if ((Get-ADGroup -Filter {Name -eq $tmp}) -eq $null)
+    {#New-ADGroup -Name $tmp -GroupScope Global -GroupCategory Security -Path $ClasseOU
+
+    New-ADGroup -Name $tmp -GroupScope Global -GroupCategory Security -Path "OU=Elèves,DC=lprs,DC=org"
+    }
+
+     New-ADuser -Name $IDENTIFIANT -Givenname $PRENOM -Path $ClasseOU -AccountPassword $Password -PasswordNeverExpires $true -AccountExpirationDate $expirdate -CannotChangePassword $chpassword1 -ScriptPath $script -DisplayName $displayname -EmailAddress $user.MESSAGERIE -UserPrincipalName $util -Surname $NOM -Enabled $true
+     
+    #New-ADUser -Surname $NOM -GivenName $PRENOM -SamAccountName $IDENTIFIANT -Name $DN -DisplayName $DN -UserPrincipalName $UPN `
+    #-AccountPassword $Password -Enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+ 
+    # Vérification
+    if ($?) {Write-Host "Utilisateur $IDENTIFIANT créé avec succès !" -BackgroundColor DarkGreen}
+    else {Write-Host "Erreur avec l'utilisateur $IDENTIFIANT !" -BackgroundColor DarkRed}
+ 
+Write-Host "===============" -BackgroundColor DarkGray
+ 
+
+
+#********Ajout des utilisateurs CPRP dans leurs groupes********************
+
+
+ 
+    Add-ADGroupMember -Identity $tmp -Members $IDENTIFIANT
+    Move-ADObject -Identity $IDENTIFIANT -TargetPath $CLASSE
+}
+Write-Host "`n===== FIN du Script =====`n" -BackgroundColor DarkGray

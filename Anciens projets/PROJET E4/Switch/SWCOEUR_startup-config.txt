@@ -1,0 +1,337 @@
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname SWCOEUR
+!
+!
+enable password administrateur
+!
+!
+!
+ip dhcp pool INFORMATIQUE
+ network 172.30.32.0 255.255.240.0
+ default-router 172.30.32.1
+ dns-server 172.30.0.252
+ip dhcp pool MULTIMEDIA
+ network 172.30.48.0 255.255.240.0
+ default-router 172.30.48.1
+ dns-server 172.30.0.252
+ip dhcp pool PRODUCTIQUE
+ network 172.30.64.0 255.255.240.0
+ default-router 172.30.64.1
+ dns-server 172.30.0.252
+ip dhcp pool ADMINISTRATION
+ network 192.168.100.0 255.255.255.0
+ default-router 192.168.100.1
+ dns-server 172.30.0.252
+ip dhcp pool CDI
+ network 172.30.128.0 255.255.240.0
+ default-router 172.30.128.1
+ dns-server 172.30.0.252
+ip dhcp pool PROFS
+ network 172.30.144.0 255.255.240.0
+ default-router 172.30.144.1
+ dns-server 172.30.0.252
+ip dhcp pool SALLE25
+ network 172.30.160.0 255.255.240.0
+ default-router 172.30.160.1
+ dns-server 172.30.0.252
+ip dhcp pool WIFI
+ network 172.30.176.0 255.255.240.0
+ default-router 172.30.176.1
+ dns-server 172.30.0.252
+!
+!
+ip routing
+!
+!
+!
+!
+username administrateur password 0 LprsAdmin2019
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 6
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/2
+ switchport access vlan 6
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/3
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/4
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/5
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/6
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/7
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/8
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/9
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/10
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/11
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/12
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/13
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/14
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/15
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/16
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/17
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/18
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/19
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/20
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/21
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/22
+ switchport access vlan 5
+ switchport mode access
+ switchport nonegotiate
+ spanning-tree portfast
+!
+interface FastEthernet0/23
+ switchport trunk allowed vlan 5-7
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/24
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+ switchport trunk encapsulation dot1q
+ switchport mode access
+ switchport nonegotiate
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ mac-address 00d0.ba9a.1c01
+ ip address 172.30.32.1 255.255.240.0
+ ip access-group 102 out
+!
+interface Vlan3
+ mac-address 00d0.ba9a.1c02
+ ip address 172.30.48.1 255.255.240.0
+ ip access-group 103 out
+!
+interface Vlan4
+ mac-address 00d0.ba9a.1c03
+ ip address 172.30.64.1 255.255.240.0
+ ip access-group 104 out
+!
+interface Vlan5
+ mac-address 00d0.ba9a.1c04
+ ip address 172.30.0.1 255.255.240.0
+!
+interface Vlan6
+ mac-address 00d0.ba9a.1c05
+ ip address 192.168.103.1 255.255.255.0
+ ip access-group 106 out
+!
+interface Vlan7
+ mac-address 00d0.ba9a.1c06
+ ip address 192.168.100.1 255.255.255.0
+ ip access-group 107 out
+!
+interface Vlan8
+ mac-address 00d0.ba9a.1c07
+ ip address 172.30.128.1 255.255.240.0
+ ip access-group 108 out
+!
+interface Vlan9
+ mac-address 00d0.ba9a.1c08
+ ip address 172.30.144.1 255.255.240.0
+ ip access-group 109 out
+!
+interface Vlan10
+ mac-address 00d0.ba9a.1c09
+ ip address 172.30.160.1 255.255.240.0
+ ip access-group 110 out
+!
+interface Vlan11
+ mac-address 00d0.ba9a.1c0a
+ ip address 172.30.176.1 255.255.240.0
+ ip access-group 111 out
+!
+interface Vlan20
+ mac-address 00d0.ba9a.1c0b
+ ip address 192.168.102.1 255.255.255.0
+ ip access-group 120 out
+!
+router rip
+ version 2
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+access-list 102 permit ip 172.30.32.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 102 permit ip 172.30.0.0 0.0.15.255 172.30.32.0 0.0.15.255
+access-list 102 deny ip any any
+access-list 103 permit ip 172.30.48.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 103 permit ip 172.30.0.0 0.0.15.255 172.30.48.0 0.0.15.255
+access-list 103 deny ip any any
+access-list 104 permit ip 172.30.64.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 104 permit ip 172.30.0.0 0.0.15.255 172.30.64.0 0.0.15.255
+access-list 104 deny ip any any
+access-list 108 permit ip 172.30.0.0 0.0.15.255 172.30.128.0 0.0.15.255
+access-list 108 permit ip 172.30.128.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 108 deny ip any any
+access-list 109 permit ip 172.30.144.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 109 permit ip 172.30.0.0 0.0.15.255 172.30.144.0 0.0.15.255
+access-list 109 deny ip any any
+access-list 110 permit ip 172.30.0.0 0.0.15.255 172.30.160.0 0.0.15.255
+access-list 110 permit ip 172.30.160.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 110 deny ip any any
+access-list 107 permit ip 172.30.0.0 0.0.15.255 192.168.100.0 0.0.0.255
+access-list 107 permit ip 192.168.100.0 0.0.0.255 172.30.0.0 0.0.15.255
+access-list 107 deny ip any any
+access-list 106 permit ip 172.30.0.0 0.0.15.255 192.168.103.0 0.0.0.255
+access-list 106 permit ip 192.168.103.0 0.0.0.255 172.30.0.0 0.0.15.255
+access-list 106 deny ip any any
+access-list 120 permit ip 172.30.0.0 0.0.15.255 192.168.102.0 0.0.0.255
+access-list 120 permit ip 192.168.102.0 0.0.0.255 172.30.0.0 0.0.15.255
+access-list 120 deny ip any any
+access-list 111 permit ip 172.30.176.0 0.0.15.255 172.30.0.0 0.0.15.255
+access-list 111 permit ip 172.30.0.0 0.0.15.255 172.30.176.0 0.0.15.255
+access-list 111 deny ip any any
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ password LprsAdmin2019
+ login local
+!
+!
+!
+!
+end
+

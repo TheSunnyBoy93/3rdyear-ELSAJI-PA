@@ -1,0 +1,40 @@
+#Installation de l'OS :
+OSInstall=YES
+#Passer la fenête qui demande si on veut faire une capture de l'OS :
+SkipCapture=YES
+#Passer la fenête qui demande le mot de passe admin local :
+SkipAdminPassword=YES
+#Passer la fenête qui demande la clé produit :
+SkipProductKey=YES
+#Passer la fenête qui demande si on veut faire une sauvegarde de l'OS :
+SkipComputerBackup=YES
+#Passer la fenête qui demande si on veut activer BitLocker :
+SkipBitLocker=YES
+#Passer la fenête qui demande si on veut récupérer des données utilisateur :
+SkipUserData=YES
+#Passer la fenête qui demande de sélectionner la séquence de tache :
+SkipTaskSequence=YES 
+#Sélection de la séquence de tâche : 
+TaskSequenceID=42
+#Passer la fenêtre qui demande la timeZone : 
+SkipTimeZone=YES 
+#Définition du nom de la timezone : 
+TimeZoneName=Romance Standard Time 
+#Passer la sélection de la langue : 
+SkipLocaleSelection=YES 
+#Définition de la langue : 
+UserLocale=040C:0000040C 
+SystemLocale=040C:0000040C 
+UILanguage=fr-FR 
+#Définition de la disposition du clavier : 
+KeyboardLocale=040C:0000040C 
+KeyboardLocalePE=040C:0000040C 
+#Passer la définition du nom :
+SkipComputerName=YES
+#Passer la selection du domaine :
+SkipDomainMembership=YES
+#Jonction au domaine :
+JoinDomain=supartic.pri
+DomainAdmin=joinAD
+DomainAdminPassword=P@ssw0rD_S3cuR3
+DomainAdminDomain=SUPARTIC
