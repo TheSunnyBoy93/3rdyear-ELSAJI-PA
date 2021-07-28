@@ -1,6 +1,8 @@
 # Projet annuel : Réponse a un appel d'offre
 
-Projet réalisé sur une année entière en deux étape de 6 mois chacune.
+Projet réalisé sur une année entière par notre petite entreprise ELSAJI, en deux étape de 6 mois chacune.
+
+![alt text](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Logo/logo%20presta.png)
 
 ## Contexte et objectif
 
