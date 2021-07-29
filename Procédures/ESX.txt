@@ -1,0 +1,31 @@
+# ESX :
+
+## Info générales :
+
+Serveur Dell Poweredge R410 branché a la box en ethernet et qui possède une adresse ip statique (192.168.1.8)
+
+## Mise en réseau :
+
+Management network : celui par défaut
+LAN : indépedendant, connécté a rien physiquement
+WAN : Dans le groupe de port WAN branché sur le switch virtuel on a l'interface physique branchée qui fournis l'accès a internet.
+
+PFsense installé avec les deux interfaces virtuelles et fournis donc l'accès a internet au réseau LAN par l'accès WAN.
+Sur le Pfsense un NAT établis sur l'interface WAN (fonctionne comme un routeur).
+
+## Stockage :
+
+2 SSD 1 To.
+2 Disque dur 1 To.
+En raid 1
+
+## Utilisateurs :
+
+4 users avec interdiction d'éteindre l'hote.
+
+## Accès distant :
+
+Sur la Box, règle d'ouverture de port pour l'accès a l'interface Web sur le port 40 002 avec le port 443 ouvert depuis l'interface.
+DNS avec DuckDNS permettant d'éviter d'entrer l'@ ip avec comme sous-domaine elsaji1.duckdns.org
+
+Raspberry : Script dans une tache permettant de vérifier l'adresse IP publique et l'actualise sur le nom de domaine.
