@@ -4,6 +4,10 @@ Projet réalisé sur une année entière par notre petite entreprise ELSAJI, en 
 
 ![alt text](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Logo/logo%20presta.png)
 
+Ci-dessous le plan de l'infrastructure :
+
+![alt text](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Information/Plan_R%C3%A9seau.png)
+
 ## Contexte et objectif
 
 [Contexte du projet](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Information/SyllabusDuProjet.pdf)
