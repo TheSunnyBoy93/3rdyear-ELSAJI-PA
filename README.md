@@ -2,6 +2,9 @@
 
 Projet réalisé sur une année entière par notre petite entreprise ELSAJI, en deux étape de 6 mois chacune.
 
+- Une [étape méthodologie](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Etapes/ESGI%20Projet%20Annuel%203SRC3%20Etape1%20GroupeMyGes9.pdf) 
+- Une [étape technique](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Etapes/ESGI%20Projet%20Annuel%203SRC3%20Etape3%20GroupeMyGes9.pdf).
+
 ![alt text](https://github.com/TheSunnyBoy93/3rdyear-ELSAJI-PA/blob/main/Logo/logo%20presta.png)
 
 Ci-dessous le plan de l'infrastructure :
